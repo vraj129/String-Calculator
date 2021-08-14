@@ -16,4 +16,9 @@ public class TestCalculator {
     {
         assertEquals(ca.Add("1"),1);
     }
+    @Test
+    public void stringwithcommas()
+    {
+        assertEquals(ca.Add("1,2"),3);
+    }
 }
