@@ -57,4 +57,9 @@ public class TestCalculator {
         assertEquals(ca.Add("1001,2"),2);
         assertEquals(ca.Add("4,2000"),4);
     }
+    @Test
+    public void anylenghtdelimiter()
+    {
+        assertEquals(ca.Add("//[***]\n1***2***3"),6);
+    }
 }

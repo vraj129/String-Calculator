@@ -18,7 +18,12 @@ public class Calculator {
         if(s.startsWith("//"))
         {
             String[] sub = s.split("\n",2);
-            delimiter = Pattern.quote(sub[0].substring(2));
+            String temp = sub[0].substring(2);
+            if(temp.startsWith("["))
+            {
+                temp = temp.substring(1,temp.length()-1);
+            }
+            delimiter = Pattern.quote(temp);
             s = sub[1];
         }
         else
