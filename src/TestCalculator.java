@@ -37,4 +37,17 @@ public class TestCalculator {
         assertEquals(ca.Add("//;\n1;2;3"),6);
         assertEquals(ca.Add("//.\n2.4"),6);
     }
+
+    @Test
+    public void throwsnegativenumbersmessage()
+    {
+        try
+        {
+            ca.Add("-1,-2,-3,4");
+        }
+        catch (IllegalArgumentException e)
+        {
+            assertEquals(e.getMessage(),"Negative numbers : -1,-2,-3");
+        }
+    }
 }
