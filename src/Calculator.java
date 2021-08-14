@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Calculator {
     public static void main(String[] args)
     {
@@ -15,8 +17,12 @@ public class Calculator {
         }
         else
         {
-            String[] demo = s.split(",|\n");
-            return Integer.parseInt(demo[0]) + Integer.parseInt(demo[1]);
+            String delimiter = ",|\n";
+
+            int number = Arrays.stream(s.split(delimiter)).mapToInt(Integer::parseInt).sum();
+            return number;
         }
     }
+
+
 }

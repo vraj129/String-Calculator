@@ -26,4 +26,9 @@ public class TestCalculator {
     {
         assertEquals(ca.Add("1\n2"),3);
     }
+    @Test
+    public void stringwithcommasandnewline()
+    {
+        assertEquals(ca.Add("1,2\n3"),6);
+    }
 }
