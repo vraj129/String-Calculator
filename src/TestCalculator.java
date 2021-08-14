@@ -21,4 +21,9 @@ public class TestCalculator {
     {
         assertEquals(ca.Add("1,2"),3);
     }
+    @Test
+    public void stringwithnewlin()
+    {
+        assertEquals(ca.Add("1\n2"),3);
+    }
 }

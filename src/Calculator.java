@@ -15,7 +15,7 @@ public class Calculator {
         }
         else
         {
-            String[] demo = s.split(",");
+            String[] demo = s.split(",|\n");
             return Integer.parseInt(demo[0]) + Integer.parseInt(demo[1]);
         }
     }
