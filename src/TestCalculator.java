@@ -50,4 +50,11 @@ public class TestCalculator {
             assertEquals(e.getMessage(),"Negative numbers : -1,-2,-3");
         }
     }
+    @Test
+    public void numberabove1000ignored()
+    {
+        assertEquals(ca.Add("2,2,1001"),4);
+        assertEquals(ca.Add("1001,2"),2);
+        assertEquals(ca.Add("4,2000"),4);
+    }
 }

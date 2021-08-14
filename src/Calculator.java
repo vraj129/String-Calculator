@@ -30,7 +30,7 @@ public class Calculator {
 
     public static IntStream getNumber(String s,String delimiter)
     {
-        return Arrays.stream(s.split(delimiter)).mapToInt(Integer::parseInt);
+        return Arrays.stream(s.split(delimiter)).mapToInt(Integer::parseInt).filter(n -> n<=1000);
     }
     public static int getSum(String s,String delimiter)
     {
