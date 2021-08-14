@@ -2,11 +2,11 @@ import java.util.Arrays;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Calculator {
     public static void main(String[] args)
     {
-
     }
     public static int Add(String s)
     {
@@ -23,7 +23,8 @@ public class Calculator {
             {
                 temp = temp.substring(1,temp.length()-1);
             }
-            delimiter = Pattern.quote(temp);
+            temp = Stream.of(temp.split("]\\[")).map(Pattern::quote).collect(Collectors.joining("|"));
+            delimiter = temp;
             s = sub[1];
         }
         else
@@ -32,7 +33,6 @@ public class Calculator {
         }
         return getSum(s,delimiter);
     }
-
     public static IntStream getNumber(String s,String delimiter)
     {
         return Arrays.stream(s.split(delimiter)).mapToInt(Integer::parseInt).filter(n -> n<=1000);
@@ -49,6 +49,4 @@ public class Calculator {
         }
         return getNumber(s,delimiter).sum();
     }
-
-
 }

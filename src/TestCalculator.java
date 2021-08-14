@@ -20,6 +20,7 @@ public class TestCalculator {
     public void stringwithcommas()
     {
         assertEquals(ca.Add("1,2"),3);
+        assertEquals(ca.Add("1,2,3"),6);
     }
     @Test
     public void stringwithnewlin()
@@ -61,5 +62,11 @@ public class TestCalculator {
     public void anylenghtdelimiter()
     {
         assertEquals(ca.Add("//[***]\n1***2***3"),6);
+    }
+    @Test
+    public void multipledelimiters()
+    {
+        assertEquals(ca.Add("//[*][%]\n1*2%3"),6);
+        assertEquals(ca.Add("//[--][...]\n1--2...3"),6);
     }
 }
