@@ -11,4 +11,9 @@ public class TestCalculator {
     {
         assertEquals(ca.Add(""),0);
     }
+    @Test
+    public void numberStringitself()
+    {
+        assertEquals(ca.Add("1"),1);
+    }
 }
