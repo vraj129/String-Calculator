@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.regex.Pattern;
+import java.util.stream.IntStream;
 
 public class Calculator {
     public static void main(String[] args)
@@ -11,17 +13,27 @@ public class Calculator {
         {
             return 0;
         }
-        else if(s.length() == 1)
+        String delimiter;
+        if(s.startsWith("//"))
         {
-            return Integer.parseInt(s);
+            String[] sub = s.split("\n",2);
+            delimiter = Pattern.quote(sub[0].substring(2));
+            s = sub[1];
         }
         else
         {
-            String delimiter = ",|\n";
-
-            int number = Arrays.stream(s.split(delimiter)).mapToInt(Integer::parseInt).sum();
-            return number;
+            delimiter = ",|\n";
         }
+        return getSum(s,delimiter);
+    }
+
+    public static IntStream getNumber(String s,String delimiter)
+    {
+        return Arrays.stream(s.split(delimiter)).mapToInt(Integer::parseInt);
+    }
+    public static int getSum(String s,String delimiter)
+    {
+        return getNumber(s,delimiter).sum();
     }
 
 
